@@ -467,6 +467,13 @@
 
                     if (Math.abs(touch_pos_y - $(window).scrollTop()) > 3 ||
                         (Math.abs(touch_pos_x - $(window).scrollLeft()) > 3)) return;
+					if (this.parentElement.classList.contains("lock")) {
+						elem.addClass('fail-shake');
+						setTimeout(function () {
+							elem.removeClass('fail-shake');
+						}, 500);
+						return false;
+					}
                     if (state) {
 
                         setOff();
